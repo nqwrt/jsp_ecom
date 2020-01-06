@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        
+            $("#btn").click(function() {
+                
+                var result = document.getElementById('ajaxValue');
+                $.ajax({
+                    url : "json.jsp", // json.jsp 에서 받아옴
+                    dataType :"json", // 데이터타입을 json 으로 받아옴
+                    success : function(data) {
+                        console.log(result.innerHTML = data.study.ajax);
+                    },
+                    error : function(e) {
+                        console.log(e.responseText);
+                    }
+                });
+            });
+    });
+</script>
+
+</head>
+<body>
+	<input type="button" id="btn" value="click">
+	<div id="ajaxValue"></div>
+</body>
+</html>
